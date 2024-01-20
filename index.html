@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 95 vw;
+            height: 95 vh;
+            display: grid;
+            place-items: center;
+            background-color: aquamarine;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>App Clima</h1>
+    <h2 id="city"> Ciudad: <span></span></h2>
+    <h2 id="temp"><span></span>°C</h2>
+</div>
+<form id="weatherForm">
+    <label for="cityInput">Escribe la ciudad</label>
+    <input type="text" id="cityInpuyt" placeholder="Escribe una ciudad">
+    <label for="CountryInput">Codigo del pais</label>
+    <input type="text" id="countryInput" placeholder="Codigo del pais">
+    <button type="submit">Consultar</button>
+</form>
+<script src="./app.js"></script>
+</body>
+</html>
