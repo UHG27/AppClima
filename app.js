@@ -21,6 +21,7 @@ async function getWeatherByCity(city){
     updateDOM(weather.name, weather.main.temp);
 }
 
+
 function updateDOM(city, temp) {
     //actualizar h2 de ciudad
     const ciudad = document.getElementById('city')
@@ -30,32 +31,22 @@ function updateDOM(city, temp) {
     tempElement.textContent =  temp - 273.15;
     //actualizar fondo dependiendo de la temperatura
     if (temp < 0) {
-        document.body.style.backgroundColor = "#005a9c";
-      } else if (temp >= 0 && temp < 10) {
-        document.body.style.backgroundColor = "#008cba";
-      } else if (temp >= 10 && temp < 20) {
-        document.body.style.backgroundColor = "#7fcdbb";
-      } else {
-        document.body.style.backgroundColor = "#ffb6c1";
-     }}
+        document.body.style.backgroundColor = "";
+    } else if (temp >= 0 && temp < 10) {
+        document.body.style.backgroundColor = "";
+    } else if (temp >= 10 && temp < 20) {
+        document.body.style.backgroundColor = "";
+    } else {
+        document.body.style.backgroundColor = "";
+    }}
+    
+    
+    async function weatherCountry(){
+        const cityInput = document.getElementById('cityInput').value;
+        getWeatherByCity(cityInput);
+    }
 
-     async function getWeatherByCity(cityName, country){
-        const url = URLBASE + `q=${ cityName},${ country }&appid=${ APIKEY }`;
-        const weather = await request(url);
-        updateDOM(weather.name, weather.main.temp);
-
-
-    document.getElementById("weatherForm").addEventListener("submit", function(event){
-        event.preventDefault();
-        const city = document.getElementById("cityInput").value;
-        const country = document.getElementById("countryInput").value;
-        const query = country ? `q=${london}, ${UnitedKingdom}` : city;
-        getWeatherByCity(query);
-    })
-     }
-
-
-navigator.geolocation.getCurrentPosition(position => {
+    navigator.geolocation.getCurrentPosition(position => {
     const lat = position.coords.latitude;
     const lon = position.coords.longitude;
     getWeather(lat, lon);
